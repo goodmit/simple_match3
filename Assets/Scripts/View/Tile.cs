@@ -85,7 +85,7 @@ namespace View
         private async Task MoveAnimation(Vector3 newPos)
         {
             isMoving = true;
-            var moveTween = _transform.DOMove(newPos, 0.3f);
+            var moveTween = _transform.DOMove(newPos, 0.15f);
             var decorateSequence = DOTween.Sequence();
             decorateSequence.Append(_transform.DOScale(new Vector3(0.85f, 1.15f, 1), 0.1f));
             decorateSequence.Append(_transform.DOScale(new Vector3(0.85f, 1.1f, 1), 0.05f));
