@@ -13,6 +13,8 @@ namespace View
 {
     public class GridManager : MonoBehaviour
     {
+        public static event Action OnShuffleItems;
+        
         [Range(4, 8)]
         [SerializeField] private int tileTypeCount = 4;
         [Range(0, 8)]
@@ -529,6 +531,9 @@ namespace View
 
         private async Task Shuffle()
         {
+            OnShuffleItems?.Invoke();
+            await Awaiters.WaitForSeconds(0.3f);
+            
             var newGrid = new Tile[mapSize.x, mapSize.y];
             var list = CreateShuffledList();
 
